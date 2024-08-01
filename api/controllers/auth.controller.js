@@ -18,8 +18,8 @@ export const register =  async (req,res)=>{
             username,
             email,
             password: hashedPassword,
-        }
-    })
+        },
+    });
 
     console.log(newUser)
     
@@ -61,7 +61,7 @@ export const login = async (req,res)=>{
         res.cookie("token",token,{
             httpOnly:true,
             maxAge: age,
-        }).status(200).json();
+        }).status(200).json(userInfo);
 
     }catch(err){
         console.log(err)
