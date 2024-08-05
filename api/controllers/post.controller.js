@@ -7,26 +7,42 @@ export const getPosts = async (req,res) =>{
     }catch(err) {console.log(err); res.status(500).json({message: "Failed to get posts"})}
 }
 export const getPost = async (req,res) =>{
-    const id = req.params.id
+    const id = req.params.id;
     try{
-        const posts = await prisma.post.findUnique({
-            where: {id}
-        })
+        const post = await prisma.post.findUnique({
+            where: {id},
+            include:{
+                postDetail: true,
+                user: {
+                    select:{
+                        username:true,
+                        avatar: true,
+                    },
+                },
+            },
+        });
 
-        res.status(200).json()
+        res.status(200).json(post)
     }catch(err) {console.log(err); res.status(500).json({message: "Failed to get post"})}
 }
 export const addPost = async (req,res) =>{
     const body = req.body;
     const tokenUserId = req.userId;
+    console.log(tokenUserId);
     try{
         const newPost = await prisma.post.create({
             data:{
-                ...body,
+                ...body.postData,
                 userId: tokenUserId,
+                postDetail:{
+                    create:body.postDetail,
+                }
             },
         });
-        res.status(200).json()
+        if (!req.userId) {
+            return res.status(401).json({ message: "Unauthorized" });
+          }
+        res.status(200).json(newPost)
     }catch(err) {console.log(err); res.status(500).json({message: "Failed add posts"})}
 }
 export const updatePost = async (req,res) =>{
