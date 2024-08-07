@@ -28,10 +28,10 @@ io.on("connection",(socket)=>{
         addUser(userId, socket.id)
     });
 
-    socket.on("sendMessage", ({ receiverId,data })=> {
-        const receiver = getUser(receiverId)
-        io.to(receiver.socketId).emit("getMessage",data);
-    });
+    socket.on("sendMessage", ({ receiverId, data }) => {
+        const receiver = getUser(receiverId);
+        io.to(receiver.socketId).emit("getMessage", data);
+      });
 
     socket.on("disconnect", ()=>{
         removeUser(socket.id);
