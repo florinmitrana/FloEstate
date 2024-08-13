@@ -6,7 +6,7 @@ This project is a full-stack real estate application built with the MERN stack (
 
 - **Frontend**: React, Redux, Tailwind CSS
 - **Backend**: Node.js, Express.js, Socket.io
-- **Database**: MongoDB
+- **Database**: MongoDB- Prisma
 - **Authentication**: JSON Web Tokens (JWT)
 - **Real-time Communication**: Socket.io
 
