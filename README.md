@@ -1,18 +1,20 @@
-# Movie Review App
+# Real Estate App
 
-This project is a simple full-stack application made with **Springboot** and **React**
+This project is a full-stack real estate application built with the MERN stack (MongoDB, Express.js, React, Node.js).
 
 ## Technologies Used
 
-- **Frontend**: React
-- **Backend**: SpringBoot
+- **Frontend**: React, Redux, Tailwind CSS
+- **Backend**: Node.js, Express.js, Socket.io
 - **Database**: MongoDB
+- **Authentication**: JSON Web Tokens (JWT)
+- **Real-time Communication**: Socket.io
 
-## Functionality
-An user can add a review to a movie, see other reviews posted for that movie and see the trailer for the respective movie.
+## Features
 
-## Demo
-
-https://github.com/user-attachments/assets/587ccb37-6e5b-435a-88d7-642fbd6f713a
-
-
+- User Authentication and Authorization (JWT)
+- Property Listings with Search and Filter
+- Detailed Property View
+- Real-time Chat with other users (Socket.io)
+- Responsive Design
+- Admin Dashboard for Managing Listings
